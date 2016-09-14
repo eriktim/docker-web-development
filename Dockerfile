@@ -7,6 +7,7 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs \
+      build-essential \
       xvfb \
       openjdk-8-jdk \
       maven
