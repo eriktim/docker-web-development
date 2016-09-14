@@ -8,7 +8,7 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get install -y --no-install-recommends \
       nodejs \
       xvfb \
-      openjdk-8-jre-headless \
+      openjdk-8-jdk \
       maven
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
