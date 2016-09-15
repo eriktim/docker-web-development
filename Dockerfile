@@ -10,6 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
       build-essential \
       xvfb \
       openjdk-8-jdk \
+      tomcat8
       maven
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
