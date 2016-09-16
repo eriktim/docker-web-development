@@ -10,10 +10,9 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
       build-essential \
       xvfb \
       openjdk-8-jdk \
-      tomcat8 \
       maven
 
-RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+RUN wget https://dl.google.com/linux/direct/google-chrome-beta_current_amd64.deb && \
     dpkg -i google-chrome*.deb || apt-get install -f -y
 
 ENV DISPLAY :99
