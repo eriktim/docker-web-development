@@ -1,4 +1,4 @@
-FROM open-jdk:8
+FROM openjdk:8
 
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get update && \
@@ -7,14 +7,16 @@ RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
       build-essential \
       xvfb
 
+RUN npm install -g jspm gulp karma
+
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome*.deb || apt-get install -f -y && \
     rm google-chrome-stable_current_amd64.deb
 
+RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 ENV DISPLAY :99
 ENV CHROME_BIN /usr/bin/google-chrome
-
-RUN npm install -g jspm gulp karma
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
