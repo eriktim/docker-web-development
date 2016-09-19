@@ -1,19 +1,15 @@
-FROM buildpack-deps:jessie
-
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" | \
-      tee --append /etc/apt/sources.list
+FROM open-jdk:8
 
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs \
       build-essential \
-      xvfb \
-      openjdk-8-jdk \
-      maven
+      xvfb
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome*.deb || apt-get install -f -y
+    dpkg -i google-chrome*.deb || apt-get install -f -y && \
+    rm google-chrome-stable_current_amd64.deb
 
 ENV DISPLAY :99
 ENV CHROME_BIN /usr/bin/google-chrome
