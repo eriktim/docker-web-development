@@ -17,7 +17,7 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 ENV DISPLAY :99
 ENV CHROME_BIN /usr/bin/google-chrome
 
-COPY entrypoint.sh /entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
