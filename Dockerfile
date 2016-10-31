@@ -1,11 +1,14 @@
 FROM openjdk:8
 
 RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
+    apt-key adv --keyserver pgp.mit.edu --recv D101F7899D41F3C3 && \
+    echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs \
       build-essential \
-      xvfb
+      xvfb \
+      yarn
 
 RUN npm install -g jspm gulp karma
 
