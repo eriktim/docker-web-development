@@ -1,7 +1,7 @@
 # Web development Docker container
 
 * Java 8
-* Node 4
+* Node 6
 * Gulp
 * Karma
 * JSPM

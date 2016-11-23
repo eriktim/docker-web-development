@@ -1,6 +1,6 @@
 FROM openjdk:8
 
-RUN curl -sL https://deb.nodesource.com/setup_4.x | bash - && \
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs \
