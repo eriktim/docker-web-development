@@ -12,8 +12,9 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
 RUN npm install -g jspm gulp karma
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome*.deb || apt-get install -f -y && \
-    rm google-chrome-stable_current_amd64.deb
+    dpkg -i google-chrome*.deb || apt-get update && apt-get install -f -y && \
+    rm google-chrome-stable_current_amd64.deb && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN CHROMEDRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE` && \
     mkdir -p /opt/chromedriver-$CHROMEDRIVER_VERSION && \
