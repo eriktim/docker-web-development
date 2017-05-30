@@ -9,7 +9,7 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
       xvfb && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN npm install -g jspm gulp karma
+RUN npm install -g karma @angular/cli
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome*.deb || apt-get update && apt-get install -f -y && \

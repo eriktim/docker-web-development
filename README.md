@@ -2,9 +2,8 @@
 
 * Java 8
 * Node 6
-* Gulp
 * Karma
-* JSPM
+* Angular CLI
 * Chrome
 * Protractor
 
