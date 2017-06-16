@@ -1,12 +1,21 @@
-FROM openjdk:8
+FROM debian:stretch
+
+RUN apt-get update && \
+    apt-get install -y apt-transport-https curl gnupg2 wget unzip && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       nodejs \
       build-essential \
-      curl \
       xvfb && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    apt-get update && \
+    apt-get install -y yarn && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN npm install -g karma @angular/cli

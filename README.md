@@ -1,7 +1,7 @@
 # Web development Docker container
 
-* Java 8
 * Node 6
+* Yarn
 * Karma
 * Angular CLI
 * Chrome
